@@ -1,4 +1,3 @@
-// main.tsx
 import { StrictMode } from "react";
 import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
@@ -14,13 +13,14 @@ import NotFound from "./components/NotFound.tsx";
 const router = createBrowserRouter([
 
   {
-    index: true,
+    path: "/login",
     element: <LogIn />,
   },
   {
     path: "/signup",
     element: <SignUp />,
   },
+
   {
     element: <ProtectedRoute />,
     children: [
@@ -28,6 +28,10 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
+          {
+            index: true,
+            element: <MyPosts />,
+          },
           {
             path: "posts/user",
             element: <MyPosts />,
@@ -42,11 +46,12 @@ const router = createBrowserRouter([
           },
         ],
       },
-      {
-        path: "*",
-        element: <NotFound />
-      }
     ],
+  },
+
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 
