@@ -44,12 +44,12 @@ const router = createBrowserRouter([
             path: "posts/edit/:id",
             element: <PostForm />,
           },
-          {
-            path: "*",
-            element: <NotFound />
-          }
         ],
       },
+      {
+        path: "*",
+        element: <NotFound />
+      }
     ],
   },
 ]);
