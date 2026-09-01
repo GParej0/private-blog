@@ -14,7 +14,7 @@ import NotFound from "./components/NotFound.tsx";
 const router = createBrowserRouter([
 
   {
-    path: "/login",
+    index: true,
     element: <LogIn />,
   },
   {
@@ -28,10 +28,6 @@ const router = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
-          {
-            index: true,
-            element: <Navigate to="/posts/user" replace />,
-          },
           {
             path: "posts/user",
             element: <MyPosts />,
