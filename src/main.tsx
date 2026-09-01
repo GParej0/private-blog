@@ -30,7 +30,7 @@ const router = createBrowserRouter([
         children: [
           {
             index: true,
-            element: <Navigate to="/login" replace />,
+            element: <Navigate to="/posts/user" replace />,
           },
           {
             index: true,
