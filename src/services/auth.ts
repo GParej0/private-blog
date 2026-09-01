@@ -1,6 +1,6 @@
 import { API_URL } from "./client"
 
-export async function logUser(password: string, user: string) {
+export async function logUser(password: string, email: string) {
     const response = await fetch(`${API_URL}/login`, {
         method: "POST",
         headers: {
@@ -8,7 +8,7 @@ export async function logUser(password: string, user: string) {
         },
         body: JSON.stringify({
             password: password,
-            user: user
+            email: email
         })
     })
     if (!response.ok) {
