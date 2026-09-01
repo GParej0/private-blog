@@ -1,7 +1,7 @@
 import { API_URL } from "./client"
 
 export async function logUser(password: string, email: string) {
-    const response = await fetch(`${API_URL}/login`, {
+    const response = await fetch(`${API_URL}/auth/login`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -18,7 +18,7 @@ export async function logUser(password: string, email: string) {
 }
 
 export async function SignUpUser(email: string, user: string, password: string) {
-    const response = await fetch(`${API_URL}/signup`, {
+    const response = await fetch(`${API_URL}/auth/signup`, {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
