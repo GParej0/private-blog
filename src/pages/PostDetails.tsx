@@ -12,7 +12,7 @@ export default function PostDetails() {
     const postId = Number(id)
 
     useEffect(() => {
-        getPostById(postId).then(response => setPost(response))
+        getPostById(postId).then(response => { setPost(response); console.log(response) })
     }, [])
 
 
@@ -29,11 +29,13 @@ export default function PostDetails() {
 
     return (
         <>
-            <div className="post-info">
-                <h2>{post?.name}</h2>
-                <h3>{post?.user?.user}</h3>
-                <p>{post?.body}</p>
-            </div>
+            {post && (
+                <div className="post-info">
+                    <h2>{post.name}</h2>
+                    <h3>{post.user.user}</h3>
+                    <p>{post.body}</p>
+                </div>
+            )}
             <div className="comment-list">
                 <h3>Comments:</h3>
                 {post?.comments?.map(comment => {

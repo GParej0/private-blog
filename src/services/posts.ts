@@ -2,7 +2,7 @@
 import { API_URL, token } from "./client";
 
 
-export async function getPostById(id: number | undefined) {
+export async function getPostById(id: number) {
 
     const response = await fetch(`${API_URL}/posts/${id}`, {
         method: "GET",
