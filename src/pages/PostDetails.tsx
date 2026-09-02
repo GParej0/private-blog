@@ -31,7 +31,7 @@ export default function PostDetails() {
         <>
             <div className="post-info">
                 <h2>{post?.name}</h2>
-                <h3>{post?.user.user}</h3>
+                <h3>{post?.user?.user}</h3>
                 <p>{post?.body}</p>
             </div>
             <div className="comment-list">
