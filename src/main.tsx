@@ -9,6 +9,7 @@ import ProtectedRoute from "./components/protectedRoute.tsx";
 import MyPosts from "./pages/MyPage.tsx";
 import PostForm from "./pages/PostForm.tsx";
 import NotFound from "./components/NotFound.tsx";
+import PostDetails from "./pages/PostDetails.tsx";
 
 const router = createBrowserRouter([
 
@@ -48,6 +49,10 @@ const router = createBrowserRouter([
             path: "posts/edit/:id",
             element: <PostForm />,
           },
+          {
+            path: "posts/:id",
+            element: <PostDetails />
+          }
         ],
       },
     ],
