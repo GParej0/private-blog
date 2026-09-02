@@ -7,8 +7,7 @@ export async function getPostById(id: number) {
     const response = await fetch(`${API_URL}/posts/${id}`, {
         method: "GET",
         headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${token}`
+            "Content-Type": "application/json"
         }
     })
     if (!response.ok) {

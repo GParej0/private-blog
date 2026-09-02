@@ -12,7 +12,7 @@ export default function PostDetails() {
     const postId = Number(id)
 
     useEffect(() => {
-        getPostById(postId).then(response => { setPost(response); console.log(response) })
+        getPostById(postId).then(response => { setPost(response.post); console.log(response) })
     }, [])
 
 
