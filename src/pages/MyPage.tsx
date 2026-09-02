@@ -13,12 +13,20 @@ export default function MyPosts() {
 
     async function handleToggle(id: string, currentPublished: boolean) {
         try {
-            const updatePost = await togglePublish(id, !currentPublished)
+            const nextPublished = !currentPublished
+
             setPosts((prevPosts) => {
-                return prevPosts.map((p) => (p.id === updatePost.id ? updatePost : p))
+                return prevPosts.map((p) => (p.id === Number(id) ? { ...p, published: nextPublished } : p))
             })
+
+            await togglePublish(id, nextPublished)
         } catch (error) {
             console.log("Cannot change state", error)
+            setPosts((prevPosts) =>
+                prevPosts.map((p) =>
+                    p.id === Number(id) ? { ...p, published: currentPublished } : p
+                )
+            );
         }
     }
 
