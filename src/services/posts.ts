@@ -51,7 +51,8 @@ export async function togglePublish(id: string, published: boolean) {
     if (!response.ok) {
         throw new Error("Wrong data")
     }
-    return await response.json()
+    const data = await response.json()
+    return data.postUpdated || data.post || data;
 }
 
 export async function createPost(name: string, body: string, published: boolean) {
