@@ -13,7 +13,7 @@ export default function MyPosts() {
 
     async function handleToggle(id: string, currentPublished: boolean) {
         try {
-            const updatePost = await togglePublish(id, currentPublished)
+            const updatePost = await togglePublish(id, !currentPublished)
             setPosts((prevPosts) => {
                 return prevPosts.map((p) => (p.id === updatePost.id ? updatePost : p))
             })
