@@ -8,7 +8,7 @@ export default function MyPosts() {
     const [posts, setPosts] = useState<Post[]>([]);
     const [errorMessage, setErrorMessage] = useState<string | null>(null)
     useEffect(() => {
-        getUserPosts().then(response => setPosts(response.allUsers || []))
+        getUserPosts().then(response => setPosts(response))
     }, []);
 
     async function handleToggle(id: string, currentPublished: boolean) {

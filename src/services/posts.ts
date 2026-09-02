@@ -32,7 +32,9 @@ export async function getUserPosts() {
         throw new Error("Wrong profile")
     }
 
-    return await response.json()
+    const data = await response.json();
+    const postList = data.allUserPost || data.posts || [];
+    return Array.isArray(postList) ? postList : []
 }
 
 export async function togglePublish(id: string, published: boolean) {
