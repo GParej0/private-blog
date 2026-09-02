@@ -33,8 +33,7 @@ export async function getUserPosts() {
     }
 
     const data = await response.json();
-    const postList = data.allUserPost || data.posts || [];
-    return Array.isArray(postList) ? postList : []
+    return data.allUserPosts
 }
 
 export async function togglePublish(id: string, published: boolean) {

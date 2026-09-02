@@ -5,7 +5,7 @@ export default function NotFound() {
         <div className="notFound">
             <h2>404-Not Found</h2>
             <p>We are sorry, the page you’re trying to access does not exist.</p>
-            <Link to={"/"} className="btn-primary">Back to menu</Link>
+            <Link to={"/posts/user"} className="btn-primary">Back to menu</Link>
         </div>
     )
 }

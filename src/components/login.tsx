@@ -16,7 +16,7 @@ export default function LogIn() {
         try {
             const data = await logUser(password, email);
             localStorage.setItem("token", data.token);
-            navigate("/post/user")
+            navigate("/posts/user")
         } catch (error) {
             setErrorMessage("Wrong email or password");
         }
