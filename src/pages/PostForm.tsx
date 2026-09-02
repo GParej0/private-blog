@@ -32,7 +32,8 @@ export default function PostForm() {
             try {
                 await editPost(Number(id), formData.name, formData.body, formData.published);
             } catch (error) {
-                throw (error)
+                console.log("The post cannot be updated");
+                alert("The post cannot be updated")
             }
             return navigate(`/posts/user`)
         }
@@ -40,7 +41,8 @@ export default function PostForm() {
         try {
             await createPost(formData.name, formData.body, formData.published)
         } catch (error) {
-            throw (error)
+            console.log("The post cannot be created");
+            alert("The post cannot be created")
         }
         return navigate(`/posts/user`)
     }

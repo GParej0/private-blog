@@ -6,6 +6,7 @@ import { useState } from "react";
 export default function LogIn() {
     const navigate = useNavigate()
     const [errorMessage, setErrorMessage] = useState<string | null>(null);
+
     async function handleSubmit(e: React.SubmitEvent) {
         e.preventDefault();
         const formData = new FormData(e.currentTarget as HTMLFormElement);
@@ -15,7 +16,7 @@ export default function LogIn() {
         try {
             const data = await logUser(password, email);
             localStorage.setItem("token", data.token);
-            navigate("/")
+            navigate("/post/user")
         } catch (error) {
             setErrorMessage("Wrong email or password");
         }

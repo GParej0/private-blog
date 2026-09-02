@@ -6,7 +6,7 @@ import { getUserPosts, togglePublish, deletePost } from "../services/posts";
 export default function MyPosts() {
 
     const [posts, setPosts] = useState<Post[]>([]);
-
+    const [errorMessage, setErrorMessage] = useState<string | null>(null)
     useEffect(() => {
         getUserPosts().then(response => setPosts(response.allUsers || []))
     }, []);
@@ -25,7 +25,7 @@ export default function MyPosts() {
             await deletePost(postId)
             setPosts((prevPosts) => prevPosts.filter((p) => p.id !== postId));
         } catch (error) {
-            throw (error)
+            setErrorMessage("Something went wrong")
         }
     }
 
@@ -44,6 +44,7 @@ export default function MyPosts() {
                     />
                 ))
             )}
+            {errorMessage && <p style={{ color: "red" }}>{errorMessage}</p>}
         </main>
     )
 
